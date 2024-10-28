@@ -21,7 +21,10 @@ def analyze_file(uploaded_file):
 
     # Sort by the number of zero-coefficient variables (ascending order)
     summary = summary.sort_values(by='zero_count', ascending=True)
-
+    # Format total spend values with dollar sign and comma separators
+    summary['total_spend_on_zeros'] = summary['total_spend_on_zeros'].apply(
+        lambda x: f"${x:,.2f}"
+    )
     # Display results in Streamlit
     st.subheader("Submodels where all variables have non-zero coefficients:")
     if all_non_zero_submodels.empty:
