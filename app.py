@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from openpyxl import load_workbook
 
 def analyze_file(uploaded_file):
     # Load the Excel file into a DataFrame
